@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Interest using Vue</title>
+    <script src="./vue.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="heading">
+    <h2>Simple Interest Calculator Using Vue</h2>
+    <h4>By Obadoba Yunusa</h4>
+    </div>
+    <div id="app" class="main">
+        <div>
+        <label>Principal</label>
+        <input class="first" v-model.number="loan.principal" placeholder="Enter Principal" type="number">
+        </div>
+
+        <div>
+        <label>Rate</label>
+        <input type="number" class="first" placeholder="Enter Rate" v-model.number="loan.rate">
+        </div>
+
+        <div>
+        <label>Time</label>
+        <input class="first" placeholder="Enter Time" type="number" v-model.number="loan.time">
+        </div>
+
+
+        <div>
+            <span>The Simple Interest Rate is {{result}}</span>
+        </div>
+    </div>
+
+    <script>
+       new Vue({
+           el: '#app',
+           data: {
+               loan: {
+                   principal: '',
+                   rate: '',
+                   time: ''
+               }
+           },
+           computed: {
+               result() {
+                let pr = this.loan.principal;
+                let ra = this.loan.rate;
+                let ti = this.loan.time;
+                return ((pr * ra * ti) / 100)
+               }
+           }
+                  })
+    </script>
+</body>
+</html>
